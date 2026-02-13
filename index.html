@@ -5,6 +5,8 @@
 <title>Just For You ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 body{
     margin:0;
@@ -12,108 +14,105 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fbc2eb,#a18cd1);
-    background-size:400% 400%;
-    animation:gradient 12s ease infinite;
-    font-family:'Comic Sans MS', cursive;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#fbc2eb);
+    background-size:300% 300%;
+    animation:bg 10s ease infinite;
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
     color:white;
 }
 
-@keyframes gradient{
+@keyframes bg{
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
 
-/* Floating hearts */
-.heart-float{
-    position:fixed;
-    bottom:-20px;
-    font-size:22px;
-    animation:floatUp 6s linear infinite;
-    opacity:0.7;
-}
-@keyframes floatUp{
-    0%{transform:translateY(0) scale(0.6);opacity:1}
-    100%{transform:translateY(-110vh) scale(1.2);opacity:0}
-}
-
 .container{
     text-align:center;
-    max-width:90%;
+    max-width:600px;
+    padding:20px;
     animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
-    from{opacity:0;transform:translateY(20px)}
+    from{opacity:0;transform:translateY(30px)}
     to{opacity:1;transform:translateY(0)}
 }
 
 h1{
-    font-size:2.4rem;
-    text-shadow:0 0 15px #ff4da6;
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin-bottom:10px;
 }
 
-h2{
-    font-size:1.6rem;
-    margin-top:20px;
+.subtitle{
+    font-size:1rem;
+    opacity:0.9;
+    margin-bottom:20px;
 }
 
 button{
-    padding:14px 26px;
+    padding:14px 28px;
     margin:10px;
     border:none;
     border-radius:40px;
     cursor:pointer;
     transition:0.3s;
+    font-weight:600;
 }
 
 .yes{
-    font-size:2.2rem;
-    background:#ff4da6;
-    color:white;
+    font-size:1.8rem;
+    background:white;
+    color:#ff4d88;
 }
 
 .no{
     font-size:1rem;
-    background:#5555ff;
+    background:#333;
     color:white;
 }
 
 button:hover{
     transform:scale(1.1);
-    box-shadow:0 0 15px rgba(255,255,255,0.6);
+    box-shadow:0 0 15px rgba(255,255,255,0.7);
+}
+
+.puppy-box{
+    display:none;
+    margin-top:20px;
+    animation:fadeIn 1s ease;
+}
+
+.puppy-box img{
+    width:220px;
+    border-radius:20px;
+}
+
+.love-line{
+    font-family:'Great Vibes',cursive;
+    font-size:1.6rem;
+    margin-top:15px;
 }
 
 .special-photo{
     width:260px;
     border-radius:20px;
-    margin:20px 0;
-    box-shadow:0 0 20px rgba(255,255,255,0.5);
+    margin:25px 0;
+    box-shadow:0 0 25px rgba(255,255,255,0.5);
 }
 
 .option-btn{
     display:block;
     margin:10px auto;
+    padding:12px;
     background:white;
-    color:black;
-    font-weight:bold;
+    color:#333;
+    border-radius:25px;
+    font-weight:600;
 }
 
-/* Puppy */
-.puppy-box{
-    display:none;
-    margin:20px 0;
-    animation:fadeIn 1s ease;
-}
-
-.puppy-box img{
-    width:200px;
-    border-radius:20px;
-}
-
-/* Popup */
 .popup{
     position:fixed;
     inset:0;
@@ -126,26 +125,34 @@ button:hover{
 
 .popup-box{
     background:white;
-    color:black;
-    padding:25px;
+    color:#333;
+    padding:30px;
     border-radius:20px;
-    font-size:1.3rem;
     text-align:center;
+    font-size:1.2rem;
 }
 
-.red{
-    color:red;
-    font-weight:bold;
-}
+.red{color:#ff0000;font-weight:600;}
 
-/* Burst hearts */
-.burst-heart{
+.heart{
     position:fixed;
-    font-size:26px;
-    animation:burst 1.5s ease-out forwards;
+    font-size:22px;
+    animation:float 6s linear infinite;
+    opacity:0.6;
 }
 
-@keyframes burst{
+@keyframes float{
+    0%{transform:translateY(0);opacity:1}
+    100%{transform:translateY(-100vh);opacity:0}
+}
+
+.burst{
+    position:fixed;
+    font-size:30px;
+    animation:explode 1.5s ease forwards;
+}
+
+@keyframes explode{
     0%{transform:scale(0);opacity:1}
     100%{transform:scale(3);opacity:0}
 }
@@ -155,20 +162,23 @@ button:hover{
 <body>
 
 <audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
 
 <div class="container">
 
-<h1><strong>💝 Preethi, will you be my Valentine?</strong></h1>
+<h1>💝 Preethi, will you be my Valentine?</h1>
+<div class="subtitle">Because my heart chose you long before this question ❤️</div>
+
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
 <div class="puppy-box" id="puppyBox">
     <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
+    <div class="love-line">You just made my heart the happiest in the world 🥹💖</div>
 </div>
 
-<hr style="margin:40px 0;">
+<hr style="margin:40px 0;opacity:0.3;">
 
 <div id="specialSection" style="display:none;">
 
@@ -182,6 +192,7 @@ button:hover{
 <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
 
 </div>
+
 </div>
 
 <div class="popup" id="popup">
@@ -190,7 +201,7 @@ button:hover{
 
 <script>
 function valentineYes(){
-    showPopup("😏 You don’t have any other option too");
+    showPopup("You don’t have any other option too 😏");
     document.getElementById("puppyBox").style.display="block";
     document.getElementById("specialSection").style.display="block";
 }
@@ -205,9 +216,9 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
-    for(let i=0;i<18;i++){
+    for(let i=0;i<20;i++){
         const h=document.createElement("div");
-        h.className="burst-heart";
+        h.className="burst";
         h.innerHTML="❤️";
         h.style.left=Math.random()*100+"vw";
         h.style.top=Math.random()*100+"vh";
@@ -222,15 +233,15 @@ function showPopup(msg){
     setTimeout(()=>{document.getElementById("popup").style.display="none"},2200);
 }
 
-/* Floating hearts continuously */
+/* Floating hearts background */
 setInterval(()=>{
     const heart=document.createElement("div");
-    heart.className="heart-float";
+    heart.className="heart";
     heart.innerHTML="💖";
     heart.style.left=Math.random()*100+"vw";
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),6000);
-},400);
+},800);
 </script>
 
 </body>
