@@ -30,7 +30,6 @@ body{
     max-width:90%;
 }
 
-/* Buttons */
 button{
     padding:14px 24px;
     margin:10px;
@@ -55,11 +54,11 @@ button{
 /* Puppy GIF */
 .puppy-box{
     display:none;
-    margin:25px 0;
+    margin-top:20px;
 }
 
 .puppy-box img{
-    width:200px;
+    width:220px;
     border-radius:20px;
 }
 
@@ -102,24 +101,11 @@ button{
     color:red;
     font-weight:bold;
 }
-
-/* Hearts burst */
-.heart{
-    position:fixed;
-    font-size:26px;
-    animation:burst 1.6s ease-out forwards;
-}
-
-@keyframes burst{
-    0%{transform:scale(0);opacity:1}
-    100%{transform:scale(3);opacity:0}
-}
 </style>
 </head>
 
 <body>
 
-<!-- LOVE MUSIC -->
 <audio autoplay loop>
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
@@ -127,13 +113,13 @@ button{
 <div class="container">
 
 <!-- VALENTINE QUESTION -->
-<h1><strong>💝 Preethi, will you be my Valentine?</strong></h1>
+<h1>💝 Preethi, will you be my Valentine?</h1>
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
-<!-- CUTE PUPPY GIF (ONLY AFTER YES) -->
+<!-- LOVE PUPPY GIF -->
 <div class="puppy-box" id="puppyBox">
-    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif" alt="Cute Puppy Love">
+    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif" alt="Cute Love Puppy">
 </div>
 
 <hr style="margin:40px 0;">
@@ -160,15 +146,17 @@ button{
 
 <script>
 function valentineYes(){
-    showPopup("😏 You don’t have any other option too");
-    document.getElementById("puppyBox").style.display = "block";
-    document.getElementById("specialSection").style.display = "block";
+    showPopup("You don’t have any other option too 😏");
+
+    // Show puppy GIF
+    document.getElementById("puppyBox").style.display="block";
+
+    // Show next question
+    document.getElementById("specialSection").style.display="block";
 }
 
 function valentineNo(){
-    showPopup(
-        "<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>"
-    );
+    showPopup("<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>");
 }
 
 function wrongAnswer(){
@@ -177,25 +165,12 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
-    heartsBurst();
 }
 
 function showPopup(msg){
-    document.getElementById("popupText").innerHTML = msg;
+    document.getElementById("popupText").innerHTML=msg;
     document.getElementById("popup").style.display="flex";
     setTimeout(()=>{document.getElementById("popup").style.display="none"},2200);
-}
-
-function heartsBurst(){
-    for(let i=0;i<18;i++){
-        const h=document.createElement("div");
-        h.className="heart";
-        h.innerHTML="❤️";
-        h.style.left=Math.random()*100+"vw";
-        h.style.top=Math.random()*100+"vh";
-        document.body.appendChild(h);
-        setTimeout(()=>h.remove(),1600);
-    }
 }
 </script>
 
