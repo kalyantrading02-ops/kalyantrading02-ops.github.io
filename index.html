@@ -5,8 +5,6 @@
 <title>Just For You ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
 <style>
 body{
     margin:0;
@@ -14,11 +12,10 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:linear-gradient(135deg,#ff758c,#ff7eb3,#fbc2eb);
-    background-size:300% 300%;
-    animation:bg 10s ease infinite;
-    font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
+    background:linear-gradient(45deg,#ff6b6b,#feca57,#ff9ff3,#54a0ff);
+    background-size:400% 400%;
+    animation:bg 15s ease infinite;
+    font-family:cursive;
     color:white;
 }
 
@@ -30,59 +27,34 @@ body{
 
 .container{
     text-align:center;
-    max-width:600px;
-    padding:20px;
-    animation:fadeIn 1.5s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(30px)}
-    to{opacity:1;transform:translateY(0)}
-}
-
-h1{
-    font-family:'Great Vibes',cursive;
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-.subtitle{
-    font-size:1rem;
-    opacity:0.9;
-    margin-bottom:20px;
+    max-width:90%;
 }
 
 button{
-    padding:14px 28px;
+    padding:14px 24px;
     margin:10px;
     border:none;
-    border-radius:40px;
+    border-radius:30px;
     cursor:pointer;
-    transition:0.3s;
-    font-weight:600;
+    font-size:1.2rem;
 }
 
 .yes{
-    font-size:1.8rem;
-    background:white;
-    color:#ff4d88;
+    font-size:2.2rem;
+    background:#ff4d6d;
+    color:white;
 }
 
 .no{
     font-size:1rem;
-    background:#333;
+    background:#4d79ff;
     color:white;
 }
 
-button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 15px rgba(255,255,255,0.7);
-}
-
+/* Puppy GIF */
 .puppy-box{
     display:none;
     margin-top:20px;
-    animation:fadeIn 1s ease;
 }
 
 .puppy-box img{
@@ -90,33 +62,26 @@ button:hover{
     border-radius:20px;
 }
 
-.love-line{
-    font-family:'Great Vibes',cursive;
-    font-size:1.6rem;
-    margin-top:15px;
-}
-
+/* Special section */
 .special-photo{
     width:260px;
+    max-width:90%;
     border-radius:20px;
-    margin:25px 0;
-    box-shadow:0 0 25px rgba(255,255,255,0.5);
+    margin:20px 0;
 }
 
 .option-btn{
     display:block;
     margin:10px auto;
-    padding:12px;
-    background:white;
-    color:#333;
-    border-radius:25px;
-    font-weight:600;
+    background:#ffe3ec;
+    color:black;
 }
 
+/* Popup */
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,.75);
     display:none;
     justify-content:center;
     align-items:center;
@@ -125,36 +90,16 @@ button:hover{
 
 .popup-box{
     background:white;
-    color:#333;
-    padding:30px;
+    color:black;
+    padding:25px;
     border-radius:20px;
+    font-size:1.4rem;
     text-align:center;
-    font-size:1.2rem;
 }
 
-.red{color:#ff0000;font-weight:600;}
-
-.heart{
-    position:fixed;
-    font-size:22px;
-    animation:float 6s linear infinite;
-    opacity:0.6;
-}
-
-@keyframes float{
-    0%{transform:translateY(0);opacity:1}
-    100%{transform:translateY(-100vh);opacity:0}
-}
-
-.burst{
-    position:fixed;
-    font-size:30px;
-    animation:explode 1.5s ease forwards;
-}
-
-@keyframes explode{
-    0%{transform:scale(0);opacity:1}
-    100%{transform:scale(3);opacity:0}
+.red{
+    color:red;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -162,27 +107,27 @@ button:hover{
 <body>
 
 <audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
 
+<!-- VALENTINE QUESTION -->
 <h1>💝 Preethi, will you be my Valentine?</h1>
-<div class="subtitle">Because my heart chose you long before this question ❤️</div>
-
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
+<!-- LOVE PUPPY GIF -->
 <div class="puppy-box" id="puppyBox">
-    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
-    <div class="love-line">You just made my heart the happiest in the world 🥹💖</div>
+    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif" alt="Cute Love Puppy">
 </div>
 
-<hr style="margin:40px 0;opacity:0.3;">
+<hr style="margin:40px 0;">
 
+<!-- NEXT QUESTION -->
 <div id="specialSection" style="display:none;">
 
-<img src="special-day.jpg" class="special-photo">
+<img src="special-day.jpg" class="special-photo" alt="Our Special Day">
 
 <h2><strong>✨ What makes this day so special for us?</strong></h2>
 
@@ -192,9 +137,9 @@ button:hover{
 <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
 
 </div>
-
 </div>
 
+<!-- POPUP -->
 <div class="popup" id="popup">
     <div class="popup-box" id="popupText"></div>
 </div>
@@ -202,7 +147,11 @@ button:hover{
 <script>
 function valentineYes(){
     showPopup("You don’t have any other option too 😏");
+
+    // Show puppy GIF
     document.getElementById("puppyBox").style.display="block";
+
+    // Show next question
     document.getElementById("specialSection").style.display="block";
 }
 
@@ -216,15 +165,6 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
-    for(let i=0;i<20;i++){
-        const h=document.createElement("div");
-        h.className="burst";
-        h.innerHTML="❤️";
-        h.style.left=Math.random()*100+"vw";
-        h.style.top=Math.random()*100+"vh";
-        document.body.appendChild(h);
-        setTimeout(()=>h.remove(),1500);
-    }
 }
 
 function showPopup(msg){
@@ -232,16 +172,6 @@ function showPopup(msg){
     document.getElementById("popup").style.display="flex";
     setTimeout(()=>{document.getElementById("popup").style.display="none"},2200);
 }
-
-/* Floating hearts background */
-setInterval(()=>{
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"vw";
-    document.body.appendChild(heart);
-    setTimeout(()=>heart.remove(),6000);
-},800);
 </script>
 
 </body>
