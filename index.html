@@ -52,15 +52,14 @@ button{
     color:white;
 }
 
-/* Peach & Goma GIFs */
-.gif-box{
+/* Puppy GIF */
+.puppy-box{
     display:none;
     margin:25px 0;
 }
 
-.gif-box img{
-    width:160px;
-    margin:10px;
+.puppy-box img{
+    width:200px;
     border-radius:20px;
 }
 
@@ -132,10 +131,9 @@ button{
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
-<!-- PEACH & GOMA GIFs (FIXED LINKS) -->
-<div class="gif-box" id="gomaBox">
-    <img src="https://media.tenor.com/2roX3uxz_68AAAAC/peach-goma-hug.gif" alt="Peach Goma Hug">
-    <img src="https://media.tenor.com/Z8Z7R9C7cHkAAAAC/peach-goma-love.gif" alt="Peach Goma Love">
+<!-- CUTE PUPPY GIF (ONLY AFTER YES) -->
+<div class="puppy-box" id="puppyBox">
+    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif" alt="Cute Puppy Love">
 </div>
 
 <hr style="margin:40px 0;">
@@ -163,7 +161,7 @@ button{
 <script>
 function valentineYes(){
     showPopup("😏 You don’t have any other option too");
-    document.getElementById("gomaBox").style.display = "block";
+    document.getElementById("puppyBox").style.display = "block";
     document.getElementById("specialSection").style.display = "block";
 }
 
