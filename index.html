@@ -77,25 +77,6 @@ button{
     color:black;
 }
 
-/* Gift Boxes */
-.gift-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-    margin-top:20px;
-}
-
-.gift{
-    font-size:50px;
-    cursor:pointer;
-    transition:0.4s;
-}
-
-.gift:hover{
-    transform:scale(1.2);
-}
-
 /* Popup */
 .popup{
     position:fixed;
@@ -155,19 +136,6 @@ button{
 <button class="option-btn" onclick="rightAnswer()">🫂 The first time I pampered and took care of you during your periods</button>
 <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
 
-<!-- 🎁 6 SURPRISE GIFT BOXES -->
-<hr style="margin:40px 0;">
-<h2><strong>🎁 6 Surprise Love Gifts For You</strong></h2>
-
-<div class="gift-container">
-    <div class="gift" onclick="openGift(this,1)">🎁</div>
-    <div class="gift" onclick="openGift(this,2)">🎁</div>
-    <div class="gift" onclick="openGift(this,3)">🎁</div>
-    <div class="gift" onclick="openGift(this,4)">🎁</div>
-    <div class="gift" onclick="openGift(this,5)">🎁</div>
-    <div class="gift" onclick="openGift(this,6)">🎁</div>
-</div>
-
 </div>
 </div>
 
@@ -179,7 +147,11 @@ button{
 <script>
 function valentineYes(){
     showPopup("You don’t have any other option too 😏");
+
+    // Show puppy GIF
     document.getElementById("puppyBox").style.display="block";
+
+    // Show next question
     document.getElementById("specialSection").style.display="block";
 }
 
@@ -193,30 +165,6 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
-}
-
-function openGift(element, number){
-    const messages = {
-        1: "💖 You are the most beautiful part of my life.",
-        2: "🌸 Every moment with you feels like magic.",
-        3: "💫 My heart feels safest with you.",
-        4: "🥹 You are my peace in every chaos.",
-        5: "🌹 I fall for you more every single day.",
-        6: "❤️ No matter what happens, I will always choose you."
-    };
-
-    element.innerHTML = messages[number];
-    element.style.fontSize = "16px";
-    element.style.padding = "10px";
-    element.style.width = "150px";
-    element.style.height = "150px";
-    element.style.display = "flex";
-    element.style.alignItems = "center";
-    element.style.justifyContent = "center";
-    element.style.background = "white";
-    element.style.color = "#ff4081";
-    element.style.borderRadius = "20px";
-    element.style.textAlign = "center";
 }
 
 function showPopup(msg){
