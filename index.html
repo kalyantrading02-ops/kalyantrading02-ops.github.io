@@ -2,173 +2,146 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Preethi ❤️</title>
+<title>Just For You ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
 body{
-    font-family:'Poppins',sans-serif;
-    background:#000;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* 🌙 STAR BACKGROUND */
-.stars{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:url('https://www.transparenttextures.com/patterns/stardust.png');
-    animation:moveStars 60s linear infinite;
-    z-index:-1;
-}
-@keyframes moveStars{
-    from{background-position:0 0;}
-    to{background-position:0 1000px;}
-}
-
-.section{
+    margin:0;
     min-height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+    background:linear-gradient(45deg,#ff6b6b,#feca57,#ff9ff3,#54a0ff);
+    background-size:400% 400%;
+    animation:bg 15s ease infinite;
+    font-family:cursive;
+    color:white;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.container{
     text-align:center;
-    padding:20px;
+    max-width:90%;
 }
 
-h1{
-    font-family:'Great Vibes',cursive;
-    font-size:3.5rem;
-    margin-bottom:20px;
-}
-
-h2{margin:15px 0;}
-
+/* Buttons */
 button{
-    padding:14px 28px;
-    border:none;
-    border-radius:40px;
+    padding:14px 24px;
     margin:10px;
+    border:none;
+    border-radius:30px;
     cursor:pointer;
-    font-weight:600;
-    transition:0.3s;
+    font-size:1.2rem;
 }
 
 .yes{
-    font-size:1.8rem;
-    background:#ff4081;
+    font-size:2.2rem;
+    background:#ff4d6d;
     color:white;
 }
 
 .no{
     font-size:1rem;
-    background:#444;
+    background:#4d79ff;
     color:white;
 }
 
-button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 20px #ff4081;
+/* Puppy GIF */
+.puppy-box{
+    display:none;
+    margin:25px 0;
 }
 
-/* Puppy */
-.puppy{
-    display:none;
-    margin-top:20px;
-}
-.puppy img{
-    width:220px;
+.puppy-box img{
+    width:200px;
     border-radius:20px;
 }
 
-/* Ring animation */
-.ring{
-    font-size:60px;
-    position:fixed;
-    top:-100px;
-    animation:dropRing 1s ease forwards;
-}
-@keyframes dropRing{
-    to{top:40%; transform:translateY(-50%);}
-}
-
-/* Fireworks */
-.firework{
-    position:fixed;
-    font-size:30px;
-    animation:explode 1.5s ease forwards;
-}
-@keyframes explode{
-    0%{transform:scale(0);opacity:1;}
-    100%{transform:scale(3);opacity:0;}
-}
-
-/* Photo Section */
+/* Special section */
 .special-photo{
     width:260px;
+    max-width:90%;
     border-radius:20px;
     margin:20px 0;
 }
 
 .option-btn{
-    background:white;
-    color:black;
     display:block;
     margin:10px auto;
-    width:90%;
-    max-width:400px;
+    background:#ffe3ec;
+    color:black;
 }
 
 /* Popup */
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.85);
+    background:rgba(0,0,0,.75);
     display:none;
     justify-content:center;
     align-items:center;
+    z-index:10;
 }
+
 .popup-box{
     background:white;
     color:black;
-    padding:30px;
+    padding:25px;
     border-radius:20px;
+    font-size:1.4rem;
+    text-align:center;
 }
-.red{color:red;font-weight:bold;}
+
+.red{
+    color:red;
+    font-weight:bold;
+}
+
+/* Hearts burst */
+.heart{
+    position:fixed;
+    font-size:26px;
+    animation:burst 1.6s ease-out forwards;
+}
+
+@keyframes burst{
+    0%{transform:scale(0);opacity:1}
+    100%{transform:scale(3);opacity:0}
+}
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
-
+<!-- LOVE MUSIC -->
 <audio autoplay loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 💝 SECTION 1 -->
-<div class="section">
+<div class="container">
 
-<h1 id="typing"></h1>
-
+<!-- VALENTINE QUESTION -->
+<h1><strong>💝 Preethi, will you be my Valentine?</strong></h1>
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
-<div class="puppy" id="puppyBox">
-    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
-    <h2>You just made my universe brighter 🥹💖</h2>
+<!-- CUTE PUPPY GIF (ONLY AFTER YES) -->
+<div class="puppy-box" id="puppyBox">
+    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif" alt="Cute Puppy Love">
 </div>
 
-</div>
+<hr style="margin:40px 0;">
 
-<!-- 📖 SECTION 2 -->
-<div class="section" id="specialSection" style="display:none;">
+<!-- NEXT QUESTION -->
+<div id="specialSection" style="display:none;">
 
-<img src="special-day.jpg" class="special-photo">
+<img src="special-day.jpg" class="special-photo" alt="Our Special Day">
 
 <h2><strong>✨ What makes this day so special for us?</strong></h2>
 
@@ -178,53 +151,24 @@ button:hover{
 <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
 
 </div>
+</div>
 
+<!-- POPUP -->
 <div class="popup" id="popup">
-<div class="popup-box" id="popupText"></div>
+    <div class="popup-box" id="popupText"></div>
 </div>
 
 <script>
-/* ✍️ Typing Effect */
-const text="Preethi, will you be my Valentine? 💝";
-let i=0;
-function type(){
-    if(i<text.length){
-        document.getElementById("typing").innerHTML+=text.charAt(i);
-        i++;
-        setTimeout(type,80);
-    }
-}
-type();
-
-/* YES click */
 function valentineYes(){
-    showPopup("You don’t have any other option too 😏");
-
-    document.getElementById("puppyBox").style.display="block";
-    document.getElementById("specialSection").style.display="flex";
-
-    /* Ring drop */
-    const ring=document.createElement("div");
-    ring.className="ring";
-    ring.innerHTML="💍";
-    document.body.appendChild(ring);
-    setTimeout(()=>ring.remove(),2000);
-
-    /* Fireworks */
-    for(let j=0;j<30;j++){
-        const f=document.createElement("div");
-        f.className="firework";
-        f.innerHTML="❤️";
-        f.style.left=Math.random()*100+"vw";
-        f.style.top=Math.random()*100+"vh";
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1500);
-    }
+    showPopup("😏 You don’t have any other option too");
+    document.getElementById("puppyBox").style.display = "block";
+    document.getElementById("specialSection").style.display = "block";
 }
 
-/* NO click */
 function valentineNo(){
-    showPopup("<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>");
+    showPopup(
+        "<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>"
+    );
 }
 
 function wrongAnswer(){
@@ -233,12 +177,25 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
+    heartsBurst();
 }
 
 function showPopup(msg){
-    document.getElementById("popupText").innerHTML=msg;
+    document.getElementById("popupText").innerHTML = msg;
     document.getElementById("popup").style.display="flex";
-    setTimeout(()=>document.getElementById("popup").style.display="none",2500);
+    setTimeout(()=>{document.getElementById("popup").style.display="none"},2200);
+}
+
+function heartsBurst(){
+    for(let i=0;i<18;i++){
+        const h=document.createElement("div");
+        h.className="heart";
+        h.innerHTML="❤️";
+        h.style.left=Math.random()*100+"vw";
+        h.style.top=Math.random()*100+"vh";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),1600);
+    }
 }
 </script>
 
