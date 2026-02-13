@@ -2,146 +2,150 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Preethi ❤️</title>
+<title>Just For You ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#fbc2eb);
+    background-size:300% 300%;
+    animation:bg 10s ease infinite;
     font-family:'Poppins',sans-serif;
     overflow-x:hidden;
-    background:black;
     color:white;
 }
 
-/* SECTION STYLE */
-.section{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.container{
     text-align:center;
+    max-width:600px;
     padding:20px;
-    transition:1s ease;
-}
-
-/* VIDEO STYLE BACKGROUND */
-.valentine-bg{
-    background:linear-gradient(135deg,#ff416c,#ff4b2b);
-    animation:bgmove 8s ease infinite alternate;
-}
-
-@keyframes bgmove{
-    from{background-position:0%}
-    to{background-position:100%}
-}
-
-/* TEXT */
-h1{
-    font-family:'Great Vibes',cursive;
-    font-size:3.5rem;
-    margin-bottom:20px;
-    animation:fadeIn 2s ease;
-}
-
-h2{
-    font-size:1.5rem;
-    margin-bottom:20px;
+    animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
-    from{opacity:0;transform:translateY(40px)}
+    from{opacity:0;transform:translateY(30px)}
     to{opacity:1;transform:translateY(0)}
 }
 
-/* BUTTONS */
+h1{
+    font-family:'Great Vibes',cursive;
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:1rem;
+    opacity:0.9;
+    margin-bottom:20px;
+}
+
 button{
     padding:14px 28px;
+    margin:10px;
     border:none;
     border-radius:40px;
-    margin:10px;
     cursor:pointer;
-    font-weight:600;
     transition:0.3s;
+    font-weight:600;
 }
 
 .yes{
     font-size:1.8rem;
     background:white;
-    color:#ff416c;
+    color:#ff4d88;
 }
 
 .no{
     font-size:1rem;
-    background:#222;
+    background:#333;
     color:white;
 }
 
 button:hover{
     transform:scale(1.1);
-    box-shadow:0 0 20px rgba(255,255,255,0.6);
+    box-shadow:0 0 15px rgba(255,255,255,0.7);
 }
 
-/* Puppy */
-.puppy{
+.puppy-box{
     display:none;
     margin-top:20px;
-    animation:fadeIn 1.5s ease;
+    animation:fadeIn 1s ease;
 }
 
-.puppy img{
+.puppy-box img{
     width:220px;
     border-radius:20px;
 }
 
-/* Photo Section */
-.photo-section{
-    background:linear-gradient(135deg,#fc5c7d,#6a82fb);
+.love-line{
+    font-family:'Great Vibes',cursive;
+    font-size:1.6rem;
+    margin-top:15px;
 }
 
 .special-photo{
     width:260px;
     border-radius:20px;
-    margin:20px 0;
-    box-shadow:0 0 30px rgba(255,255,255,0.5);
+    margin:25px 0;
+    box-shadow:0 0 25px rgba(255,255,255,0.5);
 }
 
 .option-btn{
+    display:block;
+    margin:10px auto;
+    padding:12px;
     background:white;
     color:#333;
-    margin:10px auto;
-    display:block;
-    width:90%;
-    max-width:400px;
+    border-radius:25px;
+    font-weight:600;
 }
 
-/* Popup */
 .popup{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.85);
+    background:rgba(0,0,0,0.8);
     display:none;
     justify-content:center;
     align-items:center;
-    z-index:1000;
+    z-index:10;
 }
 
 .popup-box{
     background:white;
-    color:black;
+    color:#333;
     padding:30px;
     border-radius:20px;
     text-align:center;
     font-size:1.2rem;
 }
 
-.red{color:red;font-weight:bold;}
+.red{color:#ff0000;font-weight:600;}
 
-/* Heart explosion */
+.heart{
+    position:fixed;
+    font-size:22px;
+    animation:float 6s linear infinite;
+    opacity:0.6;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:1}
+    100%{transform:translateY(-100vh);opacity:0}
+}
+
 .burst{
     position:fixed;
     font-size:30px;
@@ -158,31 +162,37 @@ button:hover{
 <body>
 
 <audio autoplay loop>
-<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
 
-<!-- SECTION 1 -->
-<div class="section valentine-bg">
-    <h1>Preethi, will you be my Valentine? 💝</h1>
-    <button class="yes" onclick="valentineYes()">YES</button>
-    <button class="no" onclick="valentineNo()">NO</button>
+<div class="container">
 
-    <div class="puppy" id="puppyBox">
-        <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
-        <h2>You just made my world brighter 🥹💖</h2>
-    </div>
+<h1>💝 Preethi, will you be my Valentine?</h1>
+<div class="subtitle">Because my heart chose you long before this question ❤️</div>
+
+<button class="yes" onclick="valentineYes()">YES</button>
+<button class="no" onclick="valentineNo()">NO</button>
+
+<div class="puppy-box" id="puppyBox">
+    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
+    <div class="love-line">You just made my heart the happiest in the world 🥹💖</div>
 </div>
 
-<!-- SECTION 2 -->
-<div class="section photo-section" id="specialSection" style="display:none;">
-    <img src="special-day.jpg" class="special-photo">
+<hr style="margin:40px 0;opacity:0.3;">
 
-    <h2><strong>✨ What makes this day so special for us?</strong></h2>
+<div id="specialSection" style="display:none;">
 
-    <button class="option-btn" onclick="wrongAnswer()">🤍 The first time we met alone at Matunga</button>
-    <button class="option-btn" onclick="wrongAnswer()">☕ The first time we went to Ram Ashraya together</button>
-    <button class="option-btn" onclick="rightAnswer()">🫂 The first time I pampered and took care of you during your periods</button>
-    <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
+<img src="special-day.jpg" class="special-photo">
+
+<h2><strong>✨ What makes this day so special for us?</strong></h2>
+
+<button class="option-btn" onclick="wrongAnswer()">🤍 The first time we met alone at Matunga</button>
+<button class="option-btn" onclick="wrongAnswer()">☕ The first time we went to Ram Ashraya together</button>
+<button class="option-btn" onclick="rightAnswer()">🫂 The first time I pampered and took care of you during your periods</button>
+<button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
+
+</div>
+
 </div>
 
 <div class="popup" id="popup">
@@ -193,7 +203,7 @@ button:hover{
 function valentineYes(){
     showPopup("You don’t have any other option too 😏");
     document.getElementById("puppyBox").style.display="block";
-    document.getElementById("specialSection").style.display="flex";
+    document.getElementById("specialSection").style.display="block";
 }
 
 function valentineNo(){
@@ -206,7 +216,7 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
-    for(let i=0;i<25;i++){
+    for(let i=0;i<20;i++){
         const h=document.createElement("div");
         h.className="burst";
         h.innerHTML="❤️";
@@ -220,8 +230,18 @@ function rightAnswer(){
 function showPopup(msg){
     document.getElementById("popupText").innerHTML=msg;
     document.getElementById("popup").style.display="flex";
-    setTimeout(()=>{document.getElementById("popup").style.display="none"},2300);
+    setTimeout(()=>{document.getElementById("popup").style.display="none"},2200);
 }
+
+/* Floating hearts background */
+setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},800);
 </script>
 
 </body>
