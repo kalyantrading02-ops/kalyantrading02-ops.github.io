@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
 font-family:'Poppins',sans-serif;
 background:#000;
@@ -16,21 +16,20 @@ color:white;
 overflow-x:hidden;
 }
 
-/* 🌙 Star Background */
+/* Stars */
 .stars{
 position:fixed;
 width:100%;
 height:100%;
 background:url('https://www.transparenttextures.com/patterns/stardust.png');
 animation:moveStars 60s linear infinite;
-z-index:-2;
+z-index:-1;
 }
 @keyframes moveStars{
 from{background-position:0 0;}
 to{background-position:0 1000px;}
 }
 
-/* 🎬 Cinematic Sections */
 .section{
 min-height:100vh;
 display:flex;
@@ -39,13 +38,6 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
-opacity:0;
-transform:translateY(40px);
-transition:all 1.2s ease;
-}
-.section.show{
-opacity:1;
-transform:translateY(0);
 }
 
 h1{
@@ -72,7 +64,6 @@ transform:scale(1.1);
 box-shadow:0 0 20px #ff4081;
 }
 
-/* Puppy */
 .puppy{display:none;margin-top:20px;}
 .puppy img{width:220px;border-radius:20px;}
 
@@ -95,6 +86,7 @@ gap:20px;
 margin-top:30px;
 max-width:500px;
 }
+
 .gift{
 background:#111;
 padding:20px;
@@ -117,7 +109,12 @@ color:#ff4081;
 animation:fadeIn 1.5s ease;
 }
 
-/* 💍 Yes Forever */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* Yes Forever Button */
 .forever-btn{
 display:none;
 margin-top:20px;
@@ -131,11 +128,18 @@ animation:pulse 1.5s infinite;
 100%{transform:scale(1);}
 }
 
-/* 📖 Slideshow */
-.slideshow{display:none;margin-top:40px;}
-.slide{display:none;font-size:1.2rem;}
+/* Slideshow */
+.slideshow{
+display:none;
+margin-top:40px;
+max-width:500px;
+}
+.slide{
+display:none;
+font-size:1.2rem;
+}
 
-/* 💑 Gallery */
+/* Photo Gallery */
 .gallery{
 display:none;
 margin-top:30px;
@@ -155,30 +159,13 @@ animation:fadeGallery 12s infinite;
 .gallery img:nth-child(1){animation-delay:0s;}
 .gallery img:nth-child(2){animation-delay:4s;}
 .gallery img:nth-child(3){animation-delay:8s;}
+
 @keyframes fadeGallery{
 0%{opacity:0;}
 10%{opacity:1;}
 30%{opacity:1;}
 40%{opacity:0;}
 100%{opacity:0;}
-}
-
-/* 🎆 Grand Finale */
-.grand-finale{
-position:fixed;
-inset:0;
-background:black;
-display:none;
-justify-content:center;
-align-items:center;
-flex-direction:column;
-z-index:9999;
-animation:fadeIn 1s ease;
-}
-.grand-finale h1{
-font-size:4rem;
-color:#ff4081;
-animation:pulse 1.5s infinite;
 }
 
 /* Popup */
@@ -198,18 +185,6 @@ border-radius:20px;
 }
 .red{color:red;font-weight:bold;}
 
-/* 💫 Sparkle Cursor */
-.sparkle{
-position:fixed;
-pointer-events:none;
-font-size:18px;
-animation:spark 1s linear forwards;
-}
-@keyframes spark{
-0%{opacity:1;}
-100%{opacity:0;transform:translateY(-20px);}
-}
-
 .counter{margin-top:20px;color:#ff4081;}
 </style>
 </head>
@@ -222,9 +197,10 @@ animation:spark 1s linear forwards;
 <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
 
-<!-- 💝 SECTION 1 -->
-<div class="section" id="sec1">
+<div class="section">
+
 <h1 id="typing"></h1>
+
 <button class="yes" onclick="valentineYes()">YES</button>
 <button class="no" onclick="valentineNo()">NO</button>
 
@@ -234,10 +210,14 @@ animation:spark 1s linear forwards;
 </div>
 
 <div class="counter" id="loveCounter"></div>
+
+<br>
+<input type="file" accept="audio/*" onchange="uploadMusic(event)">
+
 </div>
 
-<!-- 📖 SECTION 2 -->
-<div class="section" id="specialSection">
+<div class="section" id="specialSection" style="display:none;">
+
 <img src="special-day.jpg" class="special-photo">
 
 <h2><strong>✨ What makes this day so special for us?</strong></h2>
@@ -250,25 +230,32 @@ animation:spark 1s linear forwards;
 <h2 style="margin-top:40px;">🎁 6 Surprise Gifts For You</h2>
 
 <div class="gift-container">
-<div class="gift" onclick="openGift(this)">🎁</div>
-<div class="gift" onclick="openGift(this)">🎁</div>
-<div class="gift" onclick="openGift(this)">🎁</div>
-<div class="gift" onclick="openGift(this)">🎁</div>
-<div class="gift" onclick="openGift(this)">🎁</div>
-<div class="gift" onclick="openGift(this)">🎁</div>
+<div class="gift" onclick="openGift(this,1)">🎁</div>
+<div class="gift" onclick="openGift(this,2)">🎁</div>
+<div class="gift" onclick="openGift(this,3)">🎁</div>
+<div class="gift" onclick="openGift(this,4)">🎁</div>
+<div class="gift" onclick="openGift(this,5)">🎁</div>
+<div class="gift" onclick="openGift(this,6)">🎁</div>
 </div>
 
 <div class="secret" id="secretGift">
 💌 Preethi… Will you stay with me forever? 💍❤️
 </div>
 
-<button class="forever-btn" id="foreverBtn" onclick="grandFinale()">💍 YES FOREVER 💖</button>
+<button class="forever-btn" id="foreverBtn" onclick="showSlideshow()">💍 YES FOREVER 💖</button>
+
+<div class="slideshow" id="slideshow">
+<div class="slide">📖 The day we met… everything changed.</div>
+<div class="slide">🌸 The first smile you gave me… I still remember it.</div>
+<div class="slide">💖 Every memory with you is my treasure.</div>
 </div>
 
-<!-- 🎆 GRAND FINALE -->
-<div class="grand-finale" id="finale">
-<h1>Forever With You ❤️</h1>
-<h2>My heart is yours… always.</h2>
+<div class="gallery" id="gallery">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+</div>
+
 </div>
 
 <div class="popup" id="popup">
@@ -276,46 +263,34 @@ animation:spark 1s linear forwards;
 </div>
 
 <script>
-
-/* Section reveal */
-const sections=document.querySelectorAll(".section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-sections.forEach(s=>s.classList.add("show"));
-
-/* Typing */
 const text="Preethi, will you be my Valentine? 💝";
 let i=0;
 function type(){if(i<text.length){typing.innerHTML+=text.charAt(i);i++;setTimeout(type,80);}}
 type();
 
-/* Counter */
 const startDate=new Date("2024-02-07");
 function updateCounter(){
-const days=Math.floor((new Date()-startDate)/(1000*60*60*24));
+const now=new Date();
+const days=Math.floor((now-startDate)/(1000*60*60*24));
 loveCounter.innerHTML="💖 Loving you for "+days+" days and counting...";
 }
 updateCounter();
 
-/* Valentine */
 function valentineYes(){
 showPopup("You don’t have any other option too 😏");
 puppyBox.style.display="block";
+specialSection.style.display="flex";
 }
+
 function valentineNo(){
 showPopup("<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>");
 }
+
 function wrongAnswer(){showPopup("😈 It’s punishment time");}
 function rightAnswer(){showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");}
 
-/* Gifts */
 let opened=0;
-function openGift(el){
+function openGift(el,num){
 if(!el.dataset.opened){
 el.innerHTML="💖";
 el.dataset.opened=true;
@@ -327,29 +302,32 @@ foreverBtn.style.display="inline-block";
 }
 }
 
-/* Grand Finale */
-function grandFinale(){
-finale.style.display="flex";
-setTimeout(()=>{finale.style.display="none";},5000);
+function showSlideshow(){
+slideshow.style.display="block";
+gallery.style.display="block";
+let slides=document.querySelectorAll(".slide");
+let index=0;
+setInterval(()=>{
+slides.forEach(s=>s.style.display="none");
+slides[index].style.display="block";
+index=(index+1)%slides.length;
+},3000);
 }
 
-/* Popup */
+function uploadMusic(e){
+const file=e.target.files[0];
+if(file){
+const url=URL.createObjectURL(file);
+bgMusic.src=url;
+bgMusic.play();
+}
+}
+
 function showPopup(msg){
 popupText.innerHTML=msg;
 popup.style.display="flex";
 setTimeout(()=>popup.style.display="none",2500);
 }
-
-/* Sparkle Cursor */
-document.addEventListener("mousemove",e=>{
-const spark=document.createElement("div");
-spark.className="sparkle";
-spark.innerHTML="✨";
-spark.style.left=e.pageX+"px";
-spark.style.top=e.pageY+"px";
-document.body.appendChild(spark);
-setTimeout(()=>spark.remove(),1000);
-});
 </script>
 
 </body>
