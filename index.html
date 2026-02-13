@@ -224,14 +224,7 @@ setTimeout(type,80);
 type();
 
 /* Love Counter */
-const startDate=new Date("2024-02-07"); // CHANGE THIS DATE
-function updateCounter(){
-const now=new Date();
-const diff=now-startDate;
-const days=Math.floor(diff/(1000*60*60*24));
-document.getElementById("loveCounter").innerHTML=
-"💖 Loving you for "+days+" days and counting...";
-}
+loveCounter.innerHTML="💖 Loving you for 871 days and counting...";
 updateCounter();
 
 /* Valentine */
