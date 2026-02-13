@@ -9,45 +9,56 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
+
 body{
     font-family:'Poppins',sans-serif;
-    background:#000;
-    color:white;
     overflow-x:hidden;
+    background:black;
+    color:white;
 }
 
-/* 🌙 STAR BACKGROUND */
-.stars{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:url('https://www.transparenttextures.com/patterns/stardust.png');
-    animation:moveStars 60s linear infinite;
-    z-index:-1;
-}
-@keyframes moveStars{
-    from{background-position:0 0;}
-    to{background-position:0 1000px;}
-}
-
+/* SECTION STYLE */
 .section{
-    min-height:100vh;
+    height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
     padding:20px;
+    transition:1s ease;
 }
 
+/* VIDEO STYLE BACKGROUND */
+.valentine-bg{
+    background:linear-gradient(135deg,#ff416c,#ff4b2b);
+    animation:bgmove 8s ease infinite alternate;
+}
+
+@keyframes bgmove{
+    from{background-position:0%}
+    to{background-position:100%}
+}
+
+/* TEXT */
 h1{
     font-family:'Great Vibes',cursive;
     font-size:3.5rem;
     margin-bottom:20px;
+    animation:fadeIn 2s ease;
 }
 
-h2{margin:15px 0;}
+h2{
+    font-size:1.5rem;
+    margin-bottom:20px;
+}
 
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
+}
+
+/* BUTTONS */
 button{
     padding:14px 28px;
     border:none;
@@ -60,65 +71,50 @@ button{
 
 .yes{
     font-size:1.8rem;
-    background:#ff4081;
-    color:white;
+    background:white;
+    color:#ff416c;
 }
 
 .no{
     font-size:1rem;
-    background:#444;
+    background:#222;
     color:white;
 }
 
 button:hover{
     transform:scale(1.1);
-    box-shadow:0 0 20px #ff4081;
+    box-shadow:0 0 20px rgba(255,255,255,0.6);
 }
 
 /* Puppy */
 .puppy{
     display:none;
     margin-top:20px;
+    animation:fadeIn 1.5s ease;
 }
+
 .puppy img{
     width:220px;
     border-radius:20px;
 }
 
-/* Ring animation */
-.ring{
-    font-size:60px;
-    position:fixed;
-    top:-100px;
-    animation:dropRing 1s ease forwards;
-}
-@keyframes dropRing{
-    to{top:40%; transform:translateY(-50%);}
-}
-
-/* Fireworks */
-.firework{
-    position:fixed;
-    font-size:30px;
-    animation:explode 1.5s ease forwards;
-}
-@keyframes explode{
-    0%{transform:scale(0);opacity:1;}
-    100%{transform:scale(3);opacity:0;}
-}
-
 /* Photo Section */
+.photo-section{
+    background:linear-gradient(135deg,#fc5c7d,#6a82fb);
+}
+
 .special-photo{
     width:260px;
     border-radius:20px;
     margin:20px 0;
+    box-shadow:0 0 30px rgba(255,255,255,0.5);
 }
 
 .option-btn{
     background:white;
-    color:black;
-    display:block;
+    color:#333;
     margin:10px auto;
+    display:block;
     width:90%;
     max-width:400px;
 }
@@ -131,98 +127,75 @@ button:hover{
     display:none;
     justify-content:center;
     align-items:center;
+    z-index:1000;
 }
+
 .popup-box{
     background:white;
     color:black;
     padding:30px;
     border-radius:20px;
+    text-align:center;
+    font-size:1.2rem;
 }
+
 .red{color:red;font-weight:bold;}
+
+/* Heart explosion */
+.burst{
+    position:fixed;
+    font-size:30px;
+    animation:explode 1.5s ease forwards;
+}
+
+@keyframes explode{
+    0%{transform:scale(0);opacity:1}
+    100%{transform:scale(3);opacity:0}
+}
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
-
 <audio autoplay loop>
 <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3">
 </audio>
 
-<!-- 💝 SECTION 1 -->
-<div class="section">
+<!-- SECTION 1 -->
+<div class="section valentine-bg">
+    <h1>Preethi, will you be my Valentine? 💝</h1>
+    <button class="yes" onclick="valentineYes()">YES</button>
+    <button class="no" onclick="valentineNo()">NO</button>
 
-<h1 id="typing"></h1>
-
-<button class="yes" onclick="valentineYes()">YES</button>
-<button class="no" onclick="valentineNo()">NO</button>
-
-<div class="puppy" id="puppyBox">
-    <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
-    <h2>You just made my universe brighter 🥹💖</h2>
+    <div class="puppy" id="puppyBox">
+        <img src="https://media.tenor.com/3x63SN3KX4kAAAAC/cute-puppy-love.gif">
+        <h2>You just made my world brighter 🥹💖</h2>
+    </div>
 </div>
 
-</div>
+<!-- SECTION 2 -->
+<div class="section photo-section" id="specialSection" style="display:none;">
+    <img src="special-day.jpg" class="special-photo">
 
-<!-- 📖 SECTION 2 -->
-<div class="section" id="specialSection" style="display:none;">
+    <h2><strong>✨ What makes this day so special for us?</strong></h2>
 
-<img src="special-day.jpg" class="special-photo">
-
-<h2><strong>✨ What makes this day so special for us?</strong></h2>
-
-<button class="option-btn" onclick="wrongAnswer()">🤍 The first time we met alone at Matunga</button>
-<button class="option-btn" onclick="wrongAnswer()">☕ The first time we went to Ram Ashraya together</button>
-<button class="option-btn" onclick="rightAnswer()">🫂 The first time I pampered and took care of you during your periods</button>
-<button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
-
+    <button class="option-btn" onclick="wrongAnswer()">🤍 The first time we met alone at Matunga</button>
+    <button class="option-btn" onclick="wrongAnswer()">☕ The first time we went to Ram Ashraya together</button>
+    <button class="option-btn" onclick="rightAnswer()">🫂 The first time I pampered and took care of you during your periods</button>
+    <button class="option-btn" onclick="wrongAnswer()">🎤 The day you gave me a long speech about my mistake</button>
 </div>
 
 <div class="popup" id="popup">
-<div class="popup-box" id="popupText"></div>
+    <div class="popup-box" id="popupText"></div>
 </div>
 
 <script>
-/* ✍️ Typing Effect */
-const text="Preethi, will you be my Valentine? 💝";
-let i=0;
-function type(){
-    if(i<text.length){
-        document.getElementById("typing").innerHTML+=text.charAt(i);
-        i++;
-        setTimeout(type,80);
-    }
-}
-type();
-
-/* YES click */
 function valentineYes(){
     showPopup("You don’t have any other option too 😏");
-
     document.getElementById("puppyBox").style.display="block";
     document.getElementById("specialSection").style.display="flex";
-
-    /* Ring drop */
-    const ring=document.createElement("div");
-    ring.className="ring";
-    ring.innerHTML="💍";
-    document.body.appendChild(ring);
-    setTimeout(()=>ring.remove(),2000);
-
-    /* Fireworks */
-    for(let j=0;j<30;j++){
-        const f=document.createElement("div");
-        f.className="firework";
-        f.innerHTML="❤️";
-        f.style.left=Math.random()*100+"vw";
-        f.style.top=Math.random()*100+"vh";
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1500);
-    }
 }
 
-/* NO click */
 function valentineNo(){
     showPopup("<span class='red'>❌ Invalid choice.<br>System has detected you are already my Valentine</span>");
 }
@@ -233,12 +206,21 @@ function wrongAnswer(){
 
 function rightAnswer(){
     showPopup("❤️ That’s exactly what I wanted to hear. Come here, you’ve earned it 😘");
+    for(let i=0;i<25;i++){
+        const h=document.createElement("div");
+        h.className="burst";
+        h.innerHTML="❤️";
+        h.style.left=Math.random()*100+"vw";
+        h.style.top=Math.random()*100+"vh";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),1500);
+    }
 }
 
 function showPopup(msg){
     document.getElementById("popupText").innerHTML=msg;
     document.getElementById("popup").style.display="flex";
-    setTimeout(()=>document.getElementById("popup").style.display="none",2500);
+    setTimeout(()=>{document.getElementById("popup").style.display="none"},2300);
 }
 </script>
 
